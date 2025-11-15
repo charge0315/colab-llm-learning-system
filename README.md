@@ -1,4 +1,3 @@
-````markdown
 # Google Colab でオープンソース大規模LLMをファインチューニングするノートブック / README
 
 この README は、オープンソースの大規模 LLM（例: `gpt-oss-120B` など）を Google Colab 上でファインチューニングするためのノートブック仕様をまとめたものです。
