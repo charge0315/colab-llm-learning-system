@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: music-analyzer-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: music_analyzer
+    networks:
+      - music-analyzer-network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: music-analyzer-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - music_uploads:/tmp/music_uploads
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017
+      - MONGODB_DATABASE=music_analyzer
+      - DEBUG=true
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mongodb
+    networks:
+      - music-analyzer-network
+
+  # Frontend (React)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: music-analyzer-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - music-analyzer-network
+
+volumes:
+  mongodb_data:
+  music_uploads:
+
+networks:
+  music-analyzer-network:
+    driver: bridge

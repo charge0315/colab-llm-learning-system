@@ -1,0 +1,138 @@
+.upload-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.upload-method-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.method-btn {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.method-btn.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+.upload-form {
+  margin-bottom: 2rem;
+}
+
+.file-input-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+#file-input {
+  display: none;
+}
+
+.file-input-label {
+  display: block;
+  padding: 1.5rem;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.file-input-label:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.input-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.input-wrapper label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.input-wrapper input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.checkbox-wrapper {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox-wrapper label {
+  cursor: pointer;
+}
+
+.progress-wrapper {
+  margin: 1.5rem 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  background: #f0f0f0;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.info-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.info-section h3 {
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.info-section ul {
+  list-style-position: inside;
+  color: #666;
+}
+
+.info-section li {
+  margin-bottom: 0.5rem;
+}
